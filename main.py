@@ -9,6 +9,8 @@ import pandas as pd
 mpl.rcParams['figure.figsize'] = (8, 6)
 mpl.rcParams['axes.grid'] = False
 
-df = pd.read_csv("_input.csv")
+weather = pd.read_csv("weather.csv")
+power = pd.read_csv("power.csv")
+df = weather.merge(power[['datetime','power']], on='datetime')
 # df = df.iloc[start:end]
 print(df.head(5))
